@@ -42,6 +42,8 @@ DMLAB_ENVS = [
     DmLabSpec('dmlab_sparse', 'contributed/dmlab30/explore_goal_locations_large'),
     DmLabSpec('dmlab_very_sparse', 'contributed/dmlab30/explore_goal_locations_large', extra_cfg={'minGoalDistance': '10'}),
     DmLabSpec('dmlab_sparse_doors', 'contributed/dmlab30/explore_obstructed_goals_large'),
+    DmLabSpec('dmlab_sparse_doors_small', 'contributed/dmlab30/explore_obstructed_goals_small'),
+    DmLabSpec('dmlab_nav_maze_static_01', 'nav_maze_static_01'),
     DmLabSpec('dmlab_nonmatch', 'contributed/dmlab30/rooms_select_nonmatching_object'),
     DmLabSpec('dmlab_watermaze', 'contributed/dmlab30/rooms_watermaze'),
 ]
