@@ -195,15 +195,16 @@ class DmlabGymEnv(gym.Env):
 
     def render(self, mode='human'):
         if self.last_observation is None and self.dmlab.is_running():
-            self.last_observation = self.dmlab.observations()
+            self.last_observation = self.format_obs_dict(self.dmlab.observations())
+        
+        img = self.last_observation['obs']
 
-        img = self.last_observation[self.main_observation]
         if mode == 'rgb_array':
             return img
         elif mode != 'human':
             raise Exception(f'Rendering mode {mode} not supported')
 
-        img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+        img = cv2.cvtColor(np.transpose(img, (1, 2, 0)), cv2.COLOR_RGB2BGR)
 
         scale = self.render_scale
         img_big = cv2.resize(img, (self.width * scale, self.height * scale), interpolation=cv2.INTER_NEAREST)
